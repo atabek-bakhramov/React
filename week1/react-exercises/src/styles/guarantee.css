@@ -1,0 +1,24 @@
+.guarantee-list {
+  height: 20rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.guarantee-list-item {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  padding: 2rem;
+  height: 15em;
+  justify-content: flex-end;
+  background-color: rgb(159, 159, 125);
+  box-shadow: 0 0 0.5rem 0.125rem rgb(9, 9, 8);
+  text-align: center;
+}
+
+.guarantee-item-image {
+  width: 5rem;
+  margin: 0 auto;
+}
