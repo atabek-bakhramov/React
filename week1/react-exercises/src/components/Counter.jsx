@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Count from './Count';
 import Button from './Button';
+import '../styles/counter.css';
 
 const Counter = () => {
   const [ count, setCount ] = useState(0);
@@ -9,11 +10,14 @@ const Counter = () => {
   };
   const feedback = count > 10 ? "It's higher than 10!" : "Keep counting :)";  
   return (
-    <div style={{"width": "5rem", "margin": "0 auto"}}>
-      <Button onButtonClick={clickHandler}/>
-      <Count number={count}/>
-      <p>{feedback}</p>
-    </div>
+    <>
+      <h1 className="header">Exercise Three</h1>
+      <div className="counter-container">
+        <Count number={count}/>
+        <Button onButtonClick={clickHandler}/>
+        <p>{feedback}</p>
+      </div>
+    </>
   )
 };
 

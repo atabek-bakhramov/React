@@ -6,8 +6,11 @@ import Counter from './components/Counter';
 const App = () => {
   return (
     <div>
+      {/* Exercise 1 */}
       <HobbyList />
+      {/* Exercise 2 */}
       <GuaranteeList />
+      {/* Exercise 3 */}
       <Counter />
     </div>
   );

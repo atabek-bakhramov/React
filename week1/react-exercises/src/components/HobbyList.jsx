@@ -7,6 +7,7 @@ export const HobbyList = () => {
   const [ hobbies ] = useState(['Surfing', 'Rock climbing', 'Mountain biking', 'Breakdancing']);
   return (
     <>
+      <h1 className="header">Exercise One</h1>
       <ul className="hobbies-list">
         {hobbies.map(item => {
           return <Hobbies key={uuid()} hobby={item}></Hobbies>

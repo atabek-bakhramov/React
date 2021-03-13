@@ -1,0 +1,16 @@
+.counter-container {
+  height: 5rem; 
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter-container > * {
+  margin: 0 1rem;
+}
+
+.button-add {
+  padding: 0.05rem 0.5rem;
+}

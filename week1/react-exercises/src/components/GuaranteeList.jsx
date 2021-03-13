@@ -28,11 +28,15 @@ const GuaranteeList = () => {
     }
   ]);
   return (
-    <div className="guarantee-list">
-      {service.map(item => (
-        <Guarantee img={item.img} title={item.title} description={item.description}/>
-      ))}
-    </div>
+    <>
+      <h1 className="header">Exercise Two</h1>
+      <div className="guarantee-list">
+        
+        {service.map(item => (
+          <Guarantee img={item.img} title={item.title} description={item.description}/>
+        ))}
+      </div>
+    </>
   )
 };
 
