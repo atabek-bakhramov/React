@@ -7,16 +7,7 @@ const App = () => {
   return (
     <>
       {cityWeather.map((city) => (
-        <CityWeatherCard
-          key={city.id}
-          cityName={city.name}
-          weather={city.weather[0].main}
-          weatherDescription={city.weather[0].description}
-          minTemp={city.main.temp_min}
-          maxTemp={city.main.temp_max}
-          lon={city.coord.lon}
-          lat={city.coord.lat}
-        />
+        <CityWeatherCard weather={city} />
       ))}
     </>
   );
