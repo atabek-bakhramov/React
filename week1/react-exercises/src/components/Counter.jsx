@@ -7,10 +7,12 @@ const Counter = () => {
   const clickHandler = () => {
     setCount(value => value + 1);
   };
+  const feedback = count > 10 ? "It's higher than 10!" : "Keep counting :)";  
   return (
-    <div>
+    <div style={{"width": "5rem", "margin": "0 auto"}}>
       <Button onButtonClick={clickHandler}/>
       <Count number={count}/>
+      <p>{feedback}</p>
     </div>
   )
 };
