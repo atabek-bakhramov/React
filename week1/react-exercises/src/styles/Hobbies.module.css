@@ -1,11 +1,11 @@
-.hobbies-list {
+.hobbiesList {
   list-style-type: none;
   list-style-position: outside;
   text-align: center;
   margin: 2rem 0;
 }
 
-.hobby-list-item {
+.hobbyListItem {
   background-color: burlywood;
   margin: 0.25rem 0;
 }

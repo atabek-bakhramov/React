@@ -1,4 +1,4 @@
-.counter-container {
+.counterContainer {
   height: 5rem; 
   display: flex; 
   flex-direction: row;
@@ -7,10 +7,10 @@
   align-items: center;
 }
 
-.counter-container > * {
+.counterContainer > * {
   margin: 0 1rem;
 }
 
-.button-add {
+.buttonAdd {
   padding: 0.05rem 0.5rem;
 }

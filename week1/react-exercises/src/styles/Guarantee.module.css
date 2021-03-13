@@ -1,4 +1,4 @@
-.guarantee-list {
+.guaranteeList {
   height: 20rem;
   display: flex;
   flex-direction: row;
@@ -6,7 +6,7 @@
   justify-content: space-around;
 }
 
-.guarantee-list-item {
+.guaranteeListItem {
   display: flex;
   flex-direction: column;
   margin: 2rem;
@@ -18,7 +18,7 @@
   text-align: center;
 }
 
-.guarantee-item-image {
+.guaranteeItemImage {
   width: 5rem;
   margin: 0 auto;
 }

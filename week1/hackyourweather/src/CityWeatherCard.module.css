@@ -1,0 +1,7 @@
+.cardHolder {
+  width: 30rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 0.05rem solid black;
+  border-radius: 0.0125rem;
+}

@@ -1,12 +1,12 @@
 import React from 'react';
-import '../styles/guarantee.css';
+import style from '../styles/Guarantee.module.css';
 
 const Guarantee = (props) => {
   const { img, title,  description } = props;
   return (
-    <div className='guarantee-list-item'>
-      <img className='guarantee-item-image' src={img} />
-      <h1>{title}</h1>
+    <div className={style.guaranteeListItem}>
+      <img className={style.guaranteeItemImage} src={img} />
+      <h2>{title}</h2>
       <p>{description}</p>
     </div>
   )

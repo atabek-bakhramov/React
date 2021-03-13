@@ -6,8 +6,9 @@ const App = () => {
   const [cityWeather] = useState(jsonWeather);
   return (
     <>
+      <h1 style={{ textAlign: 'center' }}>Weather</h1>
       {cityWeather.map((city) => (
-        <CityWeatherCard weather={city} />
+        <CityWeatherCard data={city} />
       ))}
     </>
   );

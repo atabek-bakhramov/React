@@ -5,10 +5,7 @@
   line-height: 1.6;
 }
 
-h1 {
-  text-align: center;
-}
-
 .header {
+  text-align: center;
   border: 0.125rem solid black;
 }

@@ -4,7 +4,7 @@ import chatImg from '../images/chat.png';
 import coinImg from '../images/coin.png';
 import delivery from '../images/delivery.png';
 import Guarantee from './Guarantee';
-import '../styles/guarantee.css';
+import style from '../styles/Guarantee.module.css';
 
 const GuaranteeList = () => {
   const [ service ] = useState([
@@ -30,10 +30,9 @@ const GuaranteeList = () => {
   return (
     <>
       <h1 className="header">Exercise Two</h1>
-      <div className="guarantee-list">
-        
+      <div className={style.guaranteeList}>
         {service.map(item => (
-          <Guarantee img={item.img} title={item.title} description={item.description}/>
+          <Guarantee key={item.id} img={item.img} title={item.title} description={item.description}/>
         ))}
       </div>
     </>

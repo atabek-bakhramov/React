@@ -1,10 +1,10 @@
 import React from 'react';
-import '../styles/hobbies.css';
+import style from '../styles/Hobbies.module.css';
 
 const Hobbies = (props) => {
   const hobby = props.hobby;
   return (
-    <li className="hobby-list-item">{hobby}</li>
+    <li className={style.hobbyListItem}>{hobby}</li>
   )
 };
 
