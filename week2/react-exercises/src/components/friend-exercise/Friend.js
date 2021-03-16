@@ -3,15 +3,14 @@ import Button from './Button';
 import FriendProfile from './FriendProfile';
 
 const Friend = () => {
-  const [friend, setFriend] = useState({});
+  const [ friend, setFriend ] = useState(null);
 
   const getFriend = async () => {
     try {
       const response = await fetch('https://www.randomuser.me/api?results=1');
       const data = await response.json();
-      await setFriend(data.results[0]);
-      await console.log(friend);
-      // console.log(data.results);
+      setFriend(data.results[0]);
+      console.log(data.results[0]);
     } catch (error) {
       console.log(error.message);
     }
@@ -20,7 +19,7 @@ const Friend = () => {
   return (
     <div>
       <Button addFriendOnClick={getFriend} />
-      <FriendProfile data={friend} />
+      {friend && <FriendProfile data={friend} />}
     </div>
   )
 };

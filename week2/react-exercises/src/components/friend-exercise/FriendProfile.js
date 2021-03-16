@@ -1,5 +1,3 @@
-import React from 'react'
-
 const FriendProfile = ({ data }) => {
   const { first, last }  = data.name;
   const { number, name } = data.location.street; 
