@@ -6,6 +6,7 @@ const convertKelvin = (number) => (number - 273.15).toFixed(1);
 
 const CityWeatherCard = ({ data }) => {
   const { name } = data;
+  const { country } = data.sys;
   const { main } = data.weather[0];
   const { description } = data.weather[0];
   const minTemp = convertKelvin(data.main.temp_min);
@@ -14,7 +15,7 @@ const CityWeatherCard = ({ data }) => {
   const { lat } = data.coord;
   return (
     <div className={style.cardHolder}>
-      <h2>{name}</h2>
+      <h2>{name}, {country}</h2>
       <h3>{main}</h3>
       <h4><strong>{description}</strong></h4>
       <p>
