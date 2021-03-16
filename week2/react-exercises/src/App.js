@@ -1,13 +1,13 @@
-import Friend from './components/Friend';
-// import DogGallery from './components/DogGallery';
-// import RandomJoke from './components/RandomJoke';
+// import Friend from './components/friend-exercise/Friend';
+import DogGallery from './components/dog-exercise/DogGallery';
+// import RandomJoke from './components/joke-exercise/RandomJoke';
 const App = () => {
   return (
     <div>
       {/* exercise 1 */}
-      <Friend />
+      {/* <Friend /> */}
       {/* exercise 2 */}
-      {/* <DogGallery /> */}
+      <DogGallery />
       {/* exercise 3 */}
       {/* <RandomJoke /> */}
     </div>
