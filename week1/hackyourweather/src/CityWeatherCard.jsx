@@ -7,12 +7,10 @@ const convertKelvin = (number) => (number - 273.15).toFixed(1);
 const CityWeatherCard = ({ data }) => {
   const { name } = data;
   const { country } = data.sys;
-  const { main } = data.weather[0];
-  const { description } = data.weather[0];
+  const { main, description } = data.weather[0];
   const minTemp = convertKelvin(data.main.temp_min);
   const maxTemp = convertKelvin(data.main.temp_max);
-  const { lon } = data.coord;
-  const { lat } = data.coord;
+  const { lon, lat } = data.coord;
   return (
     <div className={style.cardHolder}>
       <h2>{name}, {country}</h2>

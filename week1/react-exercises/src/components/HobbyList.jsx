@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { v4 as uuid } from 'uuid';
 import Hobbies from './Hobbies';
 import style from '../styles/Hobbies.module.css';
 
@@ -9,8 +8,8 @@ export const HobbyList = () => {
     <>
       <h1 className="header">Exercise One</h1>
       <ul className={style.hobbiesList}>
-        {hobbies.map(item => {
-          return <Hobbies key={uuid()} hobby={item}></Hobbies>
+        {hobbies.map((item, index) => {
+          return <Hobbies key={index} hobby={item}></Hobbies>
         })}
       </ul>
     </>

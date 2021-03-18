@@ -5,7 +5,7 @@ const Guarantee = (props) => {
   const { img, title,  description } = props;
   return (
     <div className={style.guaranteeListItem}>
-      <img className={style.guaranteeItemImage} src={img} />
+      <img className={style.guaranteeItemImage} src={img} alt=""/>
       <h2>{title}</h2>
       <p>{description}</p>
     </div>
