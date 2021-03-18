@@ -22,8 +22,8 @@ const DogGallery = () => {
       <Button getDogPhotoOnClick={getDogPhoto} />
       {dogPhotos.length === 0 && (<p>Get your first dog by clicking the button!</p>)}
       <ul>
-        {dogPhotos.map(dog => {
-          return <DogPhoto key={uuid()} dogImage={dog}></DogPhoto>
+        {dogPhotos.map((dog, index) => {
+          return <DogPhoto key={index} dogImage={dog}></DogPhoto>
         })}
       </ul>
     </div>

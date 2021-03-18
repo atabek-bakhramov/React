@@ -9,7 +9,7 @@ const FriendProfile = ({ data }) => {
       <ul>
         <li>Your new friend's name: {first} {last}</li>
         <li>The friend is from: {city}, {country} </li>
-        <li>His/her address: {number} {name}</li>
+        <li>The address: {number} {name}</li>
         <li>You can connect to the friend via: {email} or {cell}</li>
       </ul>
     </div>

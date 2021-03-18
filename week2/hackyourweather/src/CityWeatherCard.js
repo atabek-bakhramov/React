@@ -4,12 +4,10 @@ import './city-weather.css';
 const CityWeatherCard = ({ data }) => {
   const { name } = data;
   const { country } = data.sys;
-  const { main } = data.weather[0];
-  const { description } = data.weather[0];
+  const { main, description } = data.weather[0];
   const minTemp = data.main.temp_min;
   const maxTemp = data.main.temp_max;
-  const { lon } = data.coord;
-  const { lat } = data.coord;
+  const { lon, lat } = data.coord;
   return (
     <div className="card-holder">
       <h2>{name}, {country}</h2>

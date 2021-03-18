@@ -22,6 +22,6 @@ const RandomJoke = () => {
       <Joke setup={joke.setup} punchline={joke.punchline}/>
     </div>
   )
-}
+};
 
 export default RandomJoke

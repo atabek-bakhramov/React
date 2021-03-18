@@ -10,7 +10,6 @@ const Friend = () => {
       const response = await fetch('https://www.randomuser.me/api?results=1');
       const data = await response.json();
       setFriend(data.results[0]);
-      console.log(data.results[0]);
     } catch (error) {
       console.log(error.message);
     }

@@ -4,6 +4,6 @@ const Button = ({ addFriendOnClick }) => {
       <button onClick={addFriendOnClick}>Add Friend</button>
     </div>
   )
-}
+};
 
 export default Button;
