@@ -8,8 +8,8 @@ const App = () => {
   return (
     <>
       <h1 className={style.header}>Weather</h1>
-      {cityWeather.map((city, index) => (
-        <CityWeatherCard data={city} key={index} />
+      {cityWeather.map((city) => (
+        <CityWeatherCard data={city} key={city.id} />
       ))}
     </>
   );
