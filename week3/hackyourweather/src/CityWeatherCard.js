@@ -1,5 +1,5 @@
 import React from 'react';
-import './city-weather.css';
+import './CityWeather.css';
 
 const CityWeatherCard = ({
   data,
@@ -21,7 +21,6 @@ const CityWeatherCard = ({
         onClick={() => deleteCard(key)}
         onKeyDown={() => {}}
         className="close-button"
-        style={{ cursor: 'pointer' }}
       >
         X
       </span>
