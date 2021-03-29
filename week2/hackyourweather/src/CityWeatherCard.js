@@ -1,5 +1,5 @@
-import React from 'react';
-import './city-weather.css';
+import React from "react";
+import "./city-weather.css";
 
 const CityWeatherCard = ({ data }) => {
   const { name } = data;
@@ -10,15 +10,15 @@ const CityWeatherCard = ({ data }) => {
   const { lon, lat } = data.coord;
   return (
     <div className="card-holder">
-      <h2>{name}, {country}</h2>
+      <h2>
+        {name}, {country}
+      </h2>
       <h3>{main}</h3>
-      <h4><strong>{description}</strong></h4>
-      <p>
-        Min Temp: {minTemp}
-      </p>
-      <p>
-        Max Temp: {maxTemp}
-      </p>
+      <h4>
+        <strong>{description}</strong>
+      </h4>
+      <p>Min Temp: {minTemp}</p>
+      <p>Max Temp: {maxTemp}</p>
       <p>
         Location: {lon}, {lat}
       </p>

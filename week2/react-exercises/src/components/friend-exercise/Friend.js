@@ -25,9 +25,13 @@ const Friend = () => {
   return (
     <div>
       <Button addFriendOnClick={getFriend} />
-      {isLoading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {friend && <FriendProfile data={friend} />}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
+        friend && <FriendProfile data={friend} />
+      )}
     </div>
   );
 };

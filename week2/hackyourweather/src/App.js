@@ -14,15 +14,16 @@ const App = () => {
       try {
         if (cityNameOnButton) {
           setLoading(true);
-          setError(""); // in case if we had an error previously, we reset it
+          setError("");
           const response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${cityNameOnButton}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`
           );
-          if (!response.ok) throw new Error(response.statusText);
           const data = await response.json();
+          console.log(data);
+          if (!response.ok) {
+            throw new Error(data.message);
+          }
           setCityWeather(data);
-        } else {
-          throw new Error("Enter City Name");
         }
       } catch (err) {
         setError(err.message);
