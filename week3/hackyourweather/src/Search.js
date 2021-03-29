@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./city-weather.css";
 
 const Search = ({ setCityNameOnButton }) => {
   const [cityNameFromInput, setCityNameFromInput] = useState("");
+  const [disabledStatus, setDisabledStatus] = useState(true);
+
+  useEffect(() => {
+    const spaceExcludedLength = cityNameFromInput.replace(/ /g, "").length; // if a user starts with spaces, it is not counted as an entry. The button stays disabled
+    const conditionOfButton = spaceExcludedLength >= 1 ? false : true;
+    setDisabledStatus(conditionOfButton);
+  }, [cityNameFromInput]);
+
   return (
     <div className="search-container">
       <input
@@ -14,6 +22,7 @@ const Search = ({ setCityNameOnButton }) => {
       <button
         type="button"
         onClick={() => setCityNameOnButton(cityNameFromInput)}
+        disabled={disabledStatus}
       >
         Get Weather
       </button>
