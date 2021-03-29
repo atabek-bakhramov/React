@@ -2,12 +2,13 @@ import React from "react";
 import "./city-weather.css";
 
 const CityWeatherCard = ({ data }) => {
-  const { name } = data;
-  const { country } = data.sys;
-  const { main, description } = data.weather[0];
-  const minTemp = data.main.temp_min;
-  const maxTemp = data.main.temp_max;
-  const { lon, lat } = data.coord;
+  console.log(data);
+  const { name } = data.data;
+  const { country } = data.data.sys;
+  const { main, description } = data.data.weather[0];
+  const minTemp = data.data.main.temp_min;
+  const maxTemp = data.data.main.temp_max;
+  const { lon, lat } = data.data.coord;
   return (
     <div className="card-holder">
       <h2>

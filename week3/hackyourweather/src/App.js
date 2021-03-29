@@ -4,7 +4,7 @@ import Search from "./Search";
 import "./city-weather.css";
 
 const App = () => {
-  const [cityWeather, setCityWeather] = useState(null);
+  const [cityWeather, setCityWeather] = useState([]);
   const [cityNameOnButton, setCityNameOnButton] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -19,11 +19,12 @@ const App = () => {
             `https://api.openweathermap.org/data/2.5/weather?q=${cityNameOnButton}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`
           );
           const data = await response.json();
-          console.log(data);
           if (!response.ok) {
             throw new Error(data.message);
           }
-          setCityWeather(data);
+          setCityWeather([...cityWeather, { data }]);
+        } else {
+          throw new Error("Enter City Name");
         }
       } catch (err) {
         setError(err.message);
@@ -31,6 +32,7 @@ const App = () => {
         setLoading(false);
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cityNameOnButton]);
 
   return (
@@ -42,7 +44,8 @@ const App = () => {
       ) : isLoading ? (
         <p>Loading...</p>
       ) : (
-        cityWeather && <CityWeatherCard data={cityWeather} />
+        cityWeather &&
+        cityWeather.map((city) => <CityWeatherCard data={city} key={city.id} />)
       )}
     </div>
   );

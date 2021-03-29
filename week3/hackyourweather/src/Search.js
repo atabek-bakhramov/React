@@ -6,7 +6,8 @@ const Search = ({ setCityNameOnButton }) => {
   const [disabledStatus, setDisabledStatus] = useState(true);
 
   useEffect(() => {
-    const spaceExcludedLength = cityNameFromInput.replace(/ /g, "").length; // if a user starts with spaces, it is not counted as an entry. The button stays disabled
+    // if a user starts with spaces, it is not counted as an entry. The button stays disabled
+    const spaceExcludedLength = cityNameFromInput.replace(/ /g, "").length;
     const conditionOfButton = spaceExcludedLength >= 1 ? false : true;
     setDisabledStatus(conditionOfButton);
   }, [cityNameFromInput]);
