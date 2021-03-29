@@ -27,3 +27,7 @@ h1 {
 .error-message {
   color: red;
 }
+
+.close-button {
+  float: right;
+}

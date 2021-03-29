@@ -1,27 +1,57 @@
-import React from "react";
-import "./city-weather.css";
+import React from 'react';
+import './city-weather.css';
 
-const CityWeatherCard = ({ data }) => {
-  console.log(data);
-  const { name } = data.data;
-  const { country } = data.data.sys;
-  const { main, description } = data.data.weather[0];
-  const minTemp = data.data.main.temp_min;
-  const maxTemp = data.data.main.temp_max;
-  const { lon, lat } = data.data.coord;
+const CityWeatherCard = ({
+  data,
+  deleteCard,
+  key,
+}) => {
+  const { name } = data;
+  const { country } = data.sys;
+  const { main, description } = data.weather[0];
+  const minTemp = data.main.temp_min;
+  const maxTemp = data.main.temp_max;
+  const { lon, lat } = data.coord;
   return (
     <div className="card-holder">
+      <span
+        // in order to turn span into a button
+        role="button"
+        tabIndex={-1}
+        onClick={() => deleteCard(key)}
+        onKeyDown={() => {}}
+        className="close-button"
+        style={{ cursor: 'pointer' }}
+      >
+        X
+      </span>
       <h2>
-        {name}, {country}
+        {name}
+        ,
+        {' '}
+        {country}
       </h2>
       <h3>{main}</h3>
       <h4>
         <strong>{description}</strong>
       </h4>
-      <p>Min Temp: {minTemp}</p>
-      <p>Max Temp: {maxTemp}</p>
       <p>
-        Location: {lon}, {lat}
+        Min Temp:
+        {' '}
+        {minTemp}
+      </p>
+      <p>
+        Max Temp:
+        {' '}
+        {maxTemp}
+      </p>
+      <p>
+        Location:
+        {' '}
+        {lon}
+        ,
+        {' '}
+        {lat}
       </p>
     </div>
   );
