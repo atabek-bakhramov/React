@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './city-weather.css';
+import './CityWeather.css';
 
 const Search = ({ setCityNameOnButton }) => {
   const [cityNameFromInput, setCityNameFromInput] = useState('');

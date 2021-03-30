@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CityWeatherCard from './CityWeatherCard';
 import Search from './Search';
-import './city-weather.css';
+import './CityWeather.css';
 
 const App = () => {
   const [cityWeather, setCityWeather] = useState([]);
