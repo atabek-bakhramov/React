@@ -19,7 +19,6 @@ const App = () => {
             `https://api.openweathermap.org/data/2.5/weather?q=${cityNameOnButton}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`
           );
           const data = await response.json();
-          console.log(data);
           if (!response.ok) {
             throw new Error(data.message);
           }
