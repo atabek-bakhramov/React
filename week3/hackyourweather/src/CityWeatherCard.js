@@ -1,11 +1,7 @@
 import React from 'react';
 import './CityWeather.css';
 
-const CityWeatherCard = ({
-  data,
-  deleteCard,
-  key,
-}) => {
+const CityWeatherCard = ({ data, deleteCard, cityKey }) => {
   const { name } = data;
   const { country } = data.sys;
   const { main, description } = data.weather[0];
@@ -18,7 +14,7 @@ const CityWeatherCard = ({
         // in order to turn span into a button
         role="button"
         tabIndex={-1}
-        onClick={() => deleteCard(key)}
+        onClick={() => deleteCard(cityKey)}
         onKeyDown={() => {}}
         className="close-button"
       >

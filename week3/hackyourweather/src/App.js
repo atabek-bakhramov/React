@@ -34,7 +34,7 @@ const App = () => {
         setLoading(false);
       }
     })();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cityNameOnButton]);
 
   return (
@@ -50,6 +50,7 @@ const App = () => {
           <CityWeatherCard
             data={city}
             key={city.id}
+            cityKey={city.id}
             deleteCard={deleteCard}
           />
         ))
