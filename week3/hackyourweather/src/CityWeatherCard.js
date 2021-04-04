@@ -10,44 +10,43 @@ const CityWeatherCard = ({ data, deleteCard, cityKey }) => {
   const { lon, lat } = data.coord;
   return (
     <div className="card-holder">
-      <span
-        // in order to turn span into a button
-        role="button"
-        tabIndex={-1}
-        onClick={() => deleteCard(cityKey)}
-        onKeyDown={() => {}}
-        className="close-button"
-      >
-        X
-      </span>
-      <h2>
-        {name}
-        ,
-        {' '}
-        {country}
-      </h2>
-      <h3>{main}</h3>
-      <h4>
-        <strong>{description}</strong>
-      </h4>
-      <p>
-        Min Temp:
-        {' '}
-        {minTemp}
-      </p>
-      <p>
-        Max Temp:
-        {' '}
-        {maxTemp}
-      </p>
-      <p>
-        Location:
-        {' '}
-        {lon}
-        ,
-        {' '}
-        {lat}
-      </p>
+      <div>
+        <h2>
+          {name}
+          {country}
+        </h2>
+        <h3>{main}</h3>
+        <h4>
+          <strong>{description}</strong>
+        </h4>
+        <p>
+          Min Temp:
+          {' '}
+          {minTemp}
+        </p>
+        <p>
+          Max Temp:
+          {' '}
+          {maxTemp}
+        </p>
+        <p>
+          Location:
+          {' '}
+          {lon}
+          ,
+          {' '}
+          {lat}
+        </p>
+      </div>
+      <div>
+        <button
+          type="button"
+          onClick={() => deleteCard(cityKey)}
+          className="close-button"
+        >
+          X
+        </button>
+      </div>
     </div>
   );
 };

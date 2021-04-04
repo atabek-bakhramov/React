@@ -18,6 +18,9 @@ h1 {
 }
 
 .card-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 2rem 0;
   padding: 1rem;
   border: 0.05rem solid black;
@@ -29,6 +32,5 @@ h1 {
 }
 
 .close-button {
-  float: right;
   cursor: pointer;
 }
