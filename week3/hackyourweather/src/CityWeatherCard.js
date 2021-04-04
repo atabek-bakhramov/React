@@ -13,6 +13,8 @@ const CityWeatherCard = ({ data, deleteCard, cityKey }) => {
       <div>
         <h2>
           {name}
+          ,
+          {' '}
           {country}
         </h2>
         <h3>{main}</h3>
