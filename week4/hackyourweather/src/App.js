@@ -11,7 +11,7 @@ import Graph from './Graph';
 const App = () => {
   const [cityWeather, setCityWeather] = useState([]);
   const [cityNameOnButton, setCityNameOnButton] = useState('');
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
   const deleteCard = (id) => {
@@ -22,7 +22,7 @@ const App = () => {
     (async () => {
       try {
         if (cityNameOnButton) {
-          setLoading(true);
+          setIsLoading(true);
           setError('');
           const response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${cityNameOnButton}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`,
@@ -36,7 +36,7 @@ const App = () => {
       } catch (err) {
         setError(err.message);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps

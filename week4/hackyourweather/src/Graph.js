@@ -12,11 +12,12 @@ const Graph = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  const convertKelvin = (number) => (number - 273.15).toFixed(1);
+
   useEffect(() => {
     (async () => {
       try {
         setIsLoading(true);
-
         const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`);
         if (!response.ok) throw new Error(response.statusText);
         const data = await response.json();
@@ -31,28 +32,36 @@ const Graph = () => {
   }, []);
 
   return (
-    <div>
-      <h2>{cityName}</h2>
-      <button type="button" onClick={() => history.goBack()}>Go back </button>
-
-      <AreaChart
-        width={800}
-        height={400}
-        data={cityForecast?.map((item) => ({
-          dateTimeText: item.dt_txt,
-          dateTime: item.dt,
-          temperature: item.main.temp,
-        }))}
-        margin={{
-          top: 5, right: 20, left: 10, bottom: 5,
-        }}
-      >
-
-        <XAxis dataKey="dateTimeText" />
-        <YAxis />
-        <Tooltip labelStyle={{ color: 'black' }} />
-        <Area type="monotone" dataKey="temperature" />
-      </AreaChart>
+    <div className="container">
+      {isLoading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      {cityForecast && cityName && (
+        <div className="graph-container">
+          <h2>
+            Forecast for
+            {' '}
+            {cityName}
+          </h2>
+          <AreaChart
+            width={600}
+            height={300}
+            data={cityForecast?.map((item) => ({
+              dateTimeText: item.dt_txt,
+              dateTime: item.dt,
+              temperature: convertKelvin(item.main.temp),
+            }))}
+            margin={{
+              top: 5, right: 20, left: 10, bottom: 5,
+            }}
+          >
+            <XAxis dataKey="dateTimeText" />
+            <YAxis />
+            <Tooltip labelStyle={{ color: 'red' }} />
+            <Area type="monotone" dataKey="temperature" />
+          </AreaChart>
+        </div>
+      )}
+      <button type="button" onClick={() => history.goBack()}>Go back</button>
     </div>
   );
 };
