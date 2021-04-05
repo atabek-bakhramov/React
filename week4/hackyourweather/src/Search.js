@@ -1,0 +1,34 @@
+import { useState, useEffect } from 'react';
+import './CityWeather.css';
+
+const Search = ({ setCityNameOnButton }) => {
+  const [cityNameFromInput, setCityNameFromInput] = useState('');
+  const [disabledStatus, setDisabledStatus] = useState(true);
+
+  useEffect(() => {
+    // if a user starts with symbols, it is not counted as an entry. The button stays disabled
+    const spaceExcludedLength = cityNameFromInput.replace(/[^a-z]/gi, '').length;
+    const conditionOfButton = !(spaceExcludedLength >= 1);
+    setDisabledStatus(conditionOfButton);
+  }, [cityNameFromInput]);
+
+  return (
+    <div className="search-container">
+      <input
+        placeholder="Search City"
+        type="text"
+        value={cityNameFromInput}
+        onChange={(e) => setCityNameFromInput(e.target.value)}
+      />
+      <button
+        type="button"
+        onClick={() => setCityNameOnButton(cityNameFromInput)}
+        disabled={disabledStatus}
+      >
+        Search
+      </button>
+    </div>
+  );
+};
+
+export default Search;
