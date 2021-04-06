@@ -10,15 +10,13 @@ const Graph = () => {
   const [cityForecast, setCityForecast] = useState(null);
   const [cityName, setCityName] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
-
-  const convertKelvin = (number) => (number - 273.15).toFixed(1);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     (async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`);
         if (!response.ok) throw new Error(response.statusText);
         const data = await response.json();
         setCityName(data.city.name);
@@ -29,7 +27,7 @@ const Graph = () => {
         setIsLoading(false);
       }
     })();
-  }, []);
+  }, [cityId]);
 
   return (
     <div className="container">
@@ -38,7 +36,7 @@ const Graph = () => {
       {cityForecast && cityName && (
         <div className="graph-container">
           <h2>
-            Forecast for
+            Forecast for 5 days
             {' '}
             {cityName}
           </h2>
@@ -47,8 +45,7 @@ const Graph = () => {
             height={300}
             data={cityForecast?.map((item) => ({
               dateTimeText: item.dt_txt,
-              dateTime: item.dt,
-              temperature: convertKelvin(item.main.temp),
+              temperature: item.main.temp,
             }))}
             margin={{
               top: 5, right: 20, left: 10, bottom: 5,

@@ -11,9 +11,8 @@ const CityWeatherCard = ({ data, deleteCard, cityKey }) => {
   const { lon, lat } = data.coord;
   return (
     <div className="card-holder">
-
       <div>
-        <Link to={`/${data.id}`}>
+        <Link to={`/city-forecast-for-five-days/${data.id}`}>
           <h2>
             {name}
             ,

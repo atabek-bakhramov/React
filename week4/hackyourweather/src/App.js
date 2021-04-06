@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
-  Route,
+  Route, Switch,
 } from 'react-router-dom';
 import CityWeatherCard from './CityWeatherCard';
 import Search from './Search';
 import './CityWeather.css';
 import Graph from './Graph';
+import NotFound from './NotFound';
 
 const App = () => {
   const [cityWeather, setCityWeather] = useState([]);
@@ -46,14 +47,15 @@ const App = () => {
     <>
       <h1>Weather</h1>
       <Router>
-        <Route path="/" exact>
-          <div className="container">
-            <Search setCityNameOnButton={setCityNameOnButton} />
-            {error && <p className="error-message">{error}</p>}
-            {isLoading ? (
-              <p>Loading...</p>
-            ) : (
-              cityWeather
+        <Switch>
+          <Route path="/" exact>
+            <div className="container">
+              <Search setCityNameOnButton={setCityNameOnButton} />
+              {error && <p className="error-message">{error}</p>}
+              {isLoading ? (
+                <p>Loading...</p>
+              ) : (
+                cityWeather
               && cityWeather.map((city) => (
                 <CityWeatherCard
                   data={city}
@@ -62,14 +64,13 @@ const App = () => {
                   deleteCard={deleteCard}
                 />
               ))
-            )}
-          </div>
-        </Route>
-        <Route path="/:cityId">
-          <Graph />
-        </Route>
+              )}
+            </div>
+          </Route>
+          <Route path="/city-forecast-for-five-days/:cityId" component={Graph} />
+          <Route path="*" component={NotFound} />
+        </Switch>
       </Router>
-
     </>
   );
 };
